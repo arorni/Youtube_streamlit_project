@@ -71,7 +71,6 @@ df_agg, df_agg_sub, df_comments, df_time = load_data()
 #additional data engineering for aggregated data
 df_agg_diff = df_agg.copy()
 numeric_cols = np.array((df_agg_diff.dtypes == 'float64') | (df_agg_diff.dtypes == 'int64'))
-print(numeric_cols)
 metric_date_12mo = df_agg_diff['Video publish time'].max() - pd.DateOffset(months=12)
 new_df = df_agg_diff[df_agg_diff['Video publish time'] >= metric_date_12mo]
 median_agg = new_df.iloc[:,numeric_cols].median()
@@ -79,7 +78,6 @@ median_agg = new_df.iloc[:,numeric_cols].median()
 #create differences from the median for values
 #Just numeric columns
 df_agg_diff.iloc[:,numeric_cols] = (df_agg_diff.iloc[:,numeric_cols] - median_agg).div(median_agg)
-print(df_agg_diff.iloc[:,numeric_cols])
 
 #merge daily data with publish data to get delta
 df_time_diff = pd.merge(df_time, df_agg.loc[:,['Video','Video publish time']], left_on ='External Video ID', right_on = 'Video')

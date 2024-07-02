@@ -37,10 +37,10 @@ def audience_simple(country):
 @st.cache_data
 def load_data():
     #Load files into dataframes
-    df_agg = pd.read_csv('C:\\Users\\heman\\Downloads\\streamlit_project\\Aggregated_Metrics_By_Video.csv')
-    df_agg_sub = pd.read_csv('C:\\Users\\heman\\Downloads\\streamlit_project\\Aggregated_Metrics_By_Country_And_Subscriber_Status.csv')
-    df_comments = pd.read_csv('C:\\Users\\heman\\Downloads\\streamlit_project\\Aggregated_Metrics_By_Video.csv')
-    df_time = pd.read_csv('C:\\Users\\heman\\Downloads\\streamlit_project\\Video_Performance_Over_Time.csv')
+    df_agg = pd.read_csv('Aggregated_Metrics_By_Video.csv')
+    df_agg_sub = pd.read_csv('Aggregated_Metrics_By_Country_And_Subscriber_Status.csv')
+    df_comments = pd.read_csv('Aggregated_Metrics_By_Video.csv')
+    df_time = pd.read_csv('Video_Performance_Over_Time.csv')
 
     #Get the data from first column onward
     df_agg = df_agg.iloc[1:, :]
